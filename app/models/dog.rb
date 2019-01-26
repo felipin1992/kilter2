@@ -6,8 +6,8 @@ class Dog < ApplicationRecord
   def self.random(dog_id)
     User.where('id != ?', dog_id).order("random()").limit(1).first
   end
-  
+
 belongs_to :user
-has_and_belongs_to_many :match
+has_many :like, through: :match
 
 end

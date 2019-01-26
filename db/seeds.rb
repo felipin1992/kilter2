@@ -9,6 +9,17 @@ require 'open-uri'
 
 Dog.destroy_all
 
-3.times do |i|
-  Dog.create(name: "Perro#{i + 1}", photo: open('https://loremflickr.com/320/240/dog'), age: '3', description: "El perro#{i + 1} es el mejor perro del mundo, amnimate a conocerlo")
+
+User.destroy_all
+
+20.times do |i|
+   u = User.create!(
+     name: "Persona#{i + 1}",
+     photo: open('https://loremflickr.com/320/240/people'),
+     email: "Persona#{i + 1}@gmail.com",
+     password: "1234567"
+   )
+   3.times do |i|
+     Dog.create!(user: u, name: "Perro#{i + 1}", photo: open('https://loremflickr.com/320/240/dog'), age: '3', description: "El perro#{i + 1} es el mejor perro del mundo, amnimate a conocerlo")
+   end
 end
