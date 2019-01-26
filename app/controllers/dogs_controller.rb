@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!, only: [ :show, :edit, :update, :destroy, :index]
 
   # GET /dogs
   # GET /dogs.json
@@ -7,13 +8,14 @@ class DogsController < ApplicationController
     @dogs = Dog.all
   end
 
-  def index2
-
+  def search
+    @dog = Dog.random(current_user.id)
   end
 
   # GET /dogs/1
   # GET /dogs/1.json
   def show
+
   end
 
   # GET /dogs/new
@@ -75,4 +77,4 @@ class DogsController < ApplicationController
     def dog_params
       params.require(:dog).permit(:name, :age, :description, :photo)
     end
-  end 
+  end

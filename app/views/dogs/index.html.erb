@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
 <h1>Dogs</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Photo</th>
       <th>Name</th>
       <th>Age</th>
       <th>Description</th>
@@ -15,7 +16,7 @@
   <tbody>
     <% @dogs.each do |dog| %>
       <tr>
-        <td><%= dog.photo %></td>
+        <td><%= image_tag dog.photo.url %></td>
         <td><%= dog.name %></td>
         <td><%= dog.age %></td>
         <td><%= dog.description %></td>

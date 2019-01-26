@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
+Dog.destroy_all
+
+3.times do |i|
+  Dog.create(name: "Perro#{i + 1}", photo: open('https://loremflickr.com/320/240/dog'), age: '3', description: "El perro#{i + 1} es el mejor perro del mundo, amnimate a conocerlo")
+end
