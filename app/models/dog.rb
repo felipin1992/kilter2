@@ -7,7 +7,7 @@ class Dog < ApplicationRecord
     User.where('id != ?', dog_id).order("random()").limit(1).first
   end
 
-belongs_to :user
+#belongs_to :user
 has_many :like, through: :match
 
 end
